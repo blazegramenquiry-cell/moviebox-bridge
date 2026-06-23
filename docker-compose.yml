@@ -1,1 +1,12 @@
+version: '3.8'
 
+services:
+  moviebox-bridge:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MOVIEBOX_V3_AUTH_TOKEN=${MOVIEBOX_V3_AUTH_TOKEN:-}
+    restart: unless-stopped
+    volumes:
+      - ./main.py:/app/main.py  # For development, auto-reload on code changes
