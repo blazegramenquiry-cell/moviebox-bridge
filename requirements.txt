@@ -1,7 +1,7 @@
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 pydantic==2.5.0
-httpx[socks]==0.28.1
+httpx[socks]>=0.28.1
 beautifulsoup4==4.12.2
 throttlebuster==0.1.12
 moviebox-api @ git+https://github.com/Simatwa/moviebox-api.git@main
