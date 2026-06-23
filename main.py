@@ -1,4 +1,3 @@
-
 import asyncio
 import logging
 from typing import Optional, List
@@ -178,7 +177,7 @@ async def search_movies(request: SearchRequest) -> SearchResponse:
                         subject_id=item.subject_id,
                         title=item.title,
                         description=item.description,
-                        image=str(item.image) if item.image else None,
+                        image=str(item.poster) if hasattr(item, 'poster') and item.poster else None,
                         imdb_rate=item.imdb_rate,
                         subject_type=item.subject_type.value,
                         release_date=str(item.release_date) if item.release_date else None,
@@ -217,7 +216,7 @@ async def get_item_details(subject_id: str, include_seasons: bool = False) -> It
                 subject_id=item_details.subject_id,
                 title=item_details.title,
                 description=item_details.description,
-                image=str(item_details.image) if item_details.image else None,
+                image=str(item_details.poster) if hasattr(item_details, 'poster') and item_details.poster else None,
                 imdb_rate=item_details.imdb_rate,
                 subject_type=item_details.subject_type.value,
                 release_date=str(item_details.release_date) if item_details.release_date else None,
